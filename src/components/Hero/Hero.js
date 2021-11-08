@@ -1,10 +1,16 @@
-import React from 'react'
-import { GradE, HeadingContainer, HeroContainer, Subtitle, Topline } from './HeroStyle'
+import React, { forwardRef } from 'react'
+import { GradE, HeadingContainer, HeroContainer, ServicesButton, Subtitle, Topline } from './HeroStyle'
 
-export const Hero = () => {
+export const Hero = forwardRef((props, ref) => {
+    const { scrollTo } = props
+
+    const handleClick = (page) => {
+        scrollTo(page)
+    }
+
     return (
         <>
-            <HeroContainer justify='center' width='100%'>
+            <HeroContainer ref={ref} justify='center' align='center' width='100%'>
                 <HeadingContainer justify='center' align='center' maxWidth='inherit'>
                 <Topline>
                     Sätt
@@ -15,9 +21,10 @@ export const Hero = () => {
                     Vi förverkligar din <GradE className="vision" margLeft='12px'>VISION</GradE>.
                 </Subtitle>
                 </HeadingContainer>
+                <ServicesButton onClick={() => handleClick('Services')}>
+                    <span>TJÄNSTER</span>
+                </ServicesButton>
             </HeroContainer>
-
-           
         </>
     )
-}
+})

@@ -3,9 +3,9 @@ import { Column, Row } from "../../globalStyles";
 
 
 export const ContentContainer = styled(Column)`
+    width: 100%;
     &.info1, &.info2{
         height: fit-content;
-        width: 100%;
     }
 
     &.Footer{
@@ -25,16 +25,37 @@ export const ContentRow = styled(Row)`
         width: fit-content;
         height: fit-content;
     }
-   
-`;
+
+    &.About {
+        justify-content: flex-end;
+    }
+
+    &.info1, &.info2{
+        height: 70px;
+    }
+   `;
 
 export const TextWrap = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 30px;
+    margin: 50px;
 
     &.Footer{
         margin: 10px;
+    }
+
+    @media screen and (max-width: 1024px){
+        margin: 25px;
+        width: 50%;
+        align-content: flex-start;
+    }
+
+    @media screen and (max-width: 960px) {
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 `;
 
@@ -48,6 +69,14 @@ export const Heading = styled.h1`
     &.Footer{
         font-size: 16pt;
     }
+    @media screen and (max-width: 1024px) {
+        font-size: 36pt;
+    }
+
+
+    @media screen and (max-width: 960px) {
+        font-size: 24pt;
+    }
 
 `;
 export const Subtitle = styled.div`
@@ -57,10 +86,32 @@ export const Subtitle = styled.div`
     font-weight: lighter;
     width: 400px;
 
+    @media screen and (max-width: 1024px), (max-width: 1440px) {
+        font-size: 10pt;
+        width: 100%;
+    }
+
+
+    @media screen and (max-width: 960px) {
+        width: 50%;
+        text-align: center;
+        font-size: 10pt;
+        
+    }
+
+    @media screen and (max-width: 425px){
+        width: 250px;
+    }
+
     &.info1, &.info2{
+        justify-content:center;
         font-size: 16pt;
-        width: fit-content;
+        width: 100%;
         font-style: italic;
+
+        @media screen and (max-width: 960px) {
+            font-size: 12pt;
+    }
     }
 
     &.Footer{
@@ -68,6 +119,8 @@ export const Subtitle = styled.div`
         justify-content: center;
         width: fit-content;
     }
+
+    
     
 `;
 export const ContentWrapper = styled.div`  
@@ -83,24 +136,50 @@ export const ContentWrapper = styled.div`
 
 export const Img = styled.img`
     display: flex;
-    background-image: url(${({src}) => (src ? src: '')});
-    background-size: cover;
-    background-position: center;
     width: 400px;
     height: 400px;
+    margin-right: 5px;
     max-height: 100%;
-    margin: 20px;
 
     &.About {
-        width: 50%;
+        width: 70%;
         height: 100%;
+        object-fit: cover;
+
+        @media screen and (max-width: 960px) {
+        width: 150%;
+        height: 100%;
+    };
+
     }
-`
-export const IconItem = styled.div`
-    color: ${({Inverse}) => (Inverse ? '#fff': 'black')};
+
+    @media screen and (max-width: 960px) {
+        height: 250px;  
+        width: 250px;
+        margin:0px;
+        margin-top:20px;
+        margin-bottom: 20px;
+        
+    }
+    
+    @media screen and (max-width: 425px){
+        margin-top: 0;
+    }
+    `;
+
+export const IconItem = styled.button`
+    background-color: transparent;
     display:flex;
-    justify-content: space-around;
-    width:100%;
+    border: none;
+    border-radius: 5px;
     margin: 5px;
     cursor: pointer;
-`
+
+    svg{
+        color: #fff;
+
+        &.left, &.right{
+        color: black;
+        }
+    }
+`;

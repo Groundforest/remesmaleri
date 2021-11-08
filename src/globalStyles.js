@@ -12,10 +12,8 @@ export const GlobalStyle = createGlobalStyle`
 export const Container = styled.div`
 display: ${({ display }) => (display ? display: '')};
 width: 100%;
-max-width: 100vw;
-height: ${({ height }) => ( height ? height: '908px')};
-margin-left: auto;
-margin-right: auto;
+max-width: 100%;
+height: ${({ height }) => ( height ? height: '970px')};
 `
 
 

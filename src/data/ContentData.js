@@ -1,6 +1,8 @@
 import {FaFacebookSquare, FaInstagram} from 'react-icons/fa'
+import { GoTriangleRight, GoTriangleLeft } from "react-icons/go";
 
 export const Utvandigt = {
+    id: 1,
     reverse: false,
     inverse: false,
     Headline: 'Utvändigt',
@@ -10,6 +12,7 @@ export const Utvandigt = {
     
 }
 export const Invandigt = {
+    id: 2,
     reverse: false,
     inverse: false,
     Headline: 'Invändigt',
@@ -20,6 +23,7 @@ export const Invandigt = {
 
 }
 export const Tapetsering = {
+    id: 3,
     reverse: false,
     inverse: false,
     Headline: 'Tapetsering',
@@ -29,16 +33,18 @@ export const Tapetsering = {
 
 }
 export const Snickerier = {
+    id: 4,
     reverse: false,
     inverse: false,
     Headline: 'Snickerier',
     Description: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."',
 
-    img: ['./assets/Snickeri.jpg', './assets/SnickeriFinish.jpg'],
+    img: ['./assets/Snickeri.jpg', './assets/SnickeriFinish.jpg']
 
 }
 
-export const About = {
+export const AboutData = {
+    id: 'about',
     classname: 'About',
     reverse: true,
     inverse: false,
@@ -66,4 +72,9 @@ export const FooterData = {
         Headline: 'Följ oss',
         icons: [<FaFacebookSquare/>, <FaInstagram/>]
     
+}
+
+export const CarouselButtonData = {
+    classname: 'carouselButton',
+    icons: {'Left': <GoTriangleLeft className='left'/> , 'Right': <GoTriangleRight className='right'/>}
 }

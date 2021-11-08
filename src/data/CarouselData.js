@@ -1,3 +1,5 @@
+import { Invandigt, Snickerier, Utvandigt, Tapetsering } from "./ContentData"
+
 export const Data = [
     {
 		text: 'Utvändigt',
@@ -12,4 +14,11 @@ export const Data = [
 		text: 'Snickerier',
 	}
 	
+]
+
+export const ServicesData = [
+	Utvandigt,
+	Invandigt,
+	Tapetsering,
+	Snickerier
 ]

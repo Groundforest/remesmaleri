@@ -1,14 +1,14 @@
 export const data = [
 	{
-		to: '/',
+		to: 'Home',
 		text: 'HEM',
 	},
 	{
-		to: '/services',
+		to: 'Services',
 		text: 'TJÄNSTER',
 	},
 	{
-		to: '/contact',
-		text: 'KONTAKT',
+		to: 'About',
+		text: 'OM OSS',
 	},
 ];

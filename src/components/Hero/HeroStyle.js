@@ -3,20 +3,28 @@ import { Column } from "../../globalStyles";
 
 
 export const HeroContainer = styled(Column)`
+    display: flex;
     background-image: url('./assets/Hero3.jpg');
     background-repeat: no-repeat;
     background-size: 1920px, 908px;
     background-attachment: fixed;
     background-position: top;
-    height: 908px;
-    margin-top: -150px;
-    margin-bottom: 20px;
-    padding: 20px;
+    flex-direction: column;
+    height: 990px;
+    margin-top: -170px;
 
-`;
+    @media screen and (max-width: 960px) {
+        height: 830px;
+        background-size: 1620px, 708px;
+    }
+
+    @media screen and (min-width: 2560px) {
+        background-size: 100%;
+    }
+`
 
 export const HeadingContainer = styled(Column)`
-
+    display: flex;
 `
 
 export const Topline = styled.h1`
@@ -28,7 +36,9 @@ export const Topline = styled.h1`
     font-family: Playfair Display, sans-serif;
     font-weight: 500;
     
-
+    @media screen and (max-width: 960px) {
+        font-size: 22pt;
+    }
 `;
 
 
@@ -44,27 +54,12 @@ export const GradE =  styled.em`
     color: black;
     font-weight: 900;
 
+    @media screen and (max-width: 960px) {
+        font-size: 26pt;
+    }
 
-@supports (--css: variables) {
-    /*background: linear-gradient(90deg, 
-        rgba(255,0,0,1) 0%, 
-        rgba(250,203,31,1) 21%, 
-        rgba(161,248,44,1) 38%, 
-        rgba(46,242,52,1) 49%, 
-        rgba(68,193,192,1) 63%, 
-        rgba(68,52,245,1) 90%);
-    */
-    /*background: linear-gradient(90deg, 
-        rgba(0,255,154,1) 19%, 
-        rgba(0,222,253,1) 19%, 
-        rgba(0,212,255,1) 42%, 
-        rgba(218,128,226,1) 42%, 
-        rgba(218,128,226,1) 68%, 
-        rgba(236,255,102,1) 68%, 
-        rgba(236,255,102,1) 87%, 
-        rgba(240,100,100,1) 87%);
-        */
 
+@supports (--css: variables) {  
     background: linear-gradient(135deg,
         #CA4246 16.666%, 
         #E16541 16.666%, 
@@ -108,4 +103,38 @@ export const Subtitle = styled.span`
     margin-top: -20px;
     font-family: Proxima nova, sans-serif;
     font-weight: lighter;
+
+    @media screen and (max-width: 960px) {
+        font-size: 14pt;
+    }
+`;
+
+export const ServicesButton = styled.button`
+    display:flex;
+    width: 150px;
+    height: 40px;
+    border: none;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0px 3px 3px gray; 
+    justify-content:center;
+    align-content:center;
+    position: relative;
+    top: 7%;
+    transition: transform  0.7s;
+    
+    
+
+    span{
+        color: #5c5c5c;
+        font-size: 14pt;
+        width: 100%;
+        height: fit-content;
+    }
+
+    &:hover{
+        background-color: #fff;
+        transform: translateX(0px) translateY(-7px);
+    }
+   
 `

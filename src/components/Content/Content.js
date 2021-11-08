@@ -1,22 +1,13 @@
-import React from 'react';
+import { forwardRef, React } from 'react';
 import { ContentContainer, ContentRow, Heading, Subtitle, TextWrap, Img, IconItem} from './ContentStyle';
 
-export const Content = ({
-    Align,
-    Justify,
-    classname,
-    img,
-    Headline,
-    Description,
-    reverse,
-    inverse,
-    icons
-}) => {
+
+export const Content = forwardRef(({ Align,Justify,classname,img,Headline,Description,reverse,inverse,icons }, ref) => {
 
 
     return (
-        <ContentContainer className={classname} justify={Justify} align={Align} height='500px'>
-            <ContentRow  className={classname} justify='center' align='center' height='inherit' Reverse={reverse} Inverse={inverse} width='100%'>
+        <ContentContainer ref={ref} className={classname} justify={Justify} align={Align}>
+            <ContentRow  className={classname} justify='center' Reverse={reverse} align='center' Inverse={inverse} width='100%' height='920px'>
                 <TextWrap className={classname}>
                     <Heading className={classname} Inverse={inverse}>
                         {Headline ? Headline: ''}
@@ -24,16 +15,12 @@ export const Content = ({
                     <Subtitle className={classname}>
                         {Description ? Description: ''}
                         {icons ? icons.map((Ic, idx) =>
-                        <IconItem Inverse={inverse}>{Ic}</IconItem>
+                        <IconItem Inverse={inverse} key={idx}>{Ic}</IconItem>
                         ):''}
                     </Subtitle>
                 </TextWrap>
-                     {img ? img.map((i, idx) => 
-                        <Img className={classname} key={idx}
-                            src={i}
-                        />
-                        ): ''}
+                    {img ? <Img className={classname} src={img}/>: ''}
             </ContentRow>
         </ContentContainer>
     )
-}
+})
