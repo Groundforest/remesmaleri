@@ -32,7 +32,7 @@ export const Home = () => {
             <Navbar scrollTo={scrollTo}/>
             <Hero ref={home} scrollTo={scrollTo}/>
             <Content  {...infoOne}/>
-            <Carousel ref={services}/>
+            <Carousel ref={services} scrollTo={scrollTo}/>
             <Content ref={about} {...infoTwo}/>
             <Content {...AboutData} align='flex-end' width='100%'/>
             <Footer/>

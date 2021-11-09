@@ -33,6 +33,16 @@ export const ContentRow = styled(Row)`
     &.info1, &.info2{
         height: 70px;
     }
+
+    @media screen and (max-width: 960px) {
+        flex-direction: column;
+        height: 90%;
+        margin-top: 30px;
+        overflow: hidden;;
+    }
+
+    @media screen and (max-width: 425px){
+    }
    `;
 
 export const TextWrap = styled.div`

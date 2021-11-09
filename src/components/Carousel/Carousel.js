@@ -6,15 +6,14 @@ import { TextWrap, Heading, Subtitle, IconItem, Img } from '../Content/ContentSt
 
 
 
-
 export const Carousel = forwardRef((props, ref) => {
     const[index, setIndex] = useState(0)
-    const[CarouselObj, setCarouselObj] = useState();
-    const[resize, setResize] = useState(true);
     const[windowSizeMedium, setWindowSizeMedium] = useState(false);
+    const[CarouselObj, setCarouselObj] = useState(0);
     const { icons } = CarouselButtonData;
     const elRef = useRef([])
-    
+    const el = document.getElementById('CarouselItemContainer')
+
 
     useEffect(() => {
         if (window.innerWidth <= 1024) {
@@ -35,13 +34,28 @@ export const Carousel = forwardRef((props, ref) => {
         };
     }, []);
 
-    const resizeHandler = () => {
-        if(resize){
-        setTimeout(() => setResize(!resize), 10000)
-        }
-    }
+    useLayoutEffect(() => {
 
-    //window.onresize = resizeHandler;
+        function isVisible(element){
+            const rect = element.getBoundingClientRect();
+        
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        };
+
+        function keepInView() {
+            if (isVisible(el)) {
+            elRef.current[CarouselObj].scrollIntoView({behavior: 'smooth', block: 'center'})
+        } else {
+            console.log(isVisible(el))
+        }}
+
+        window.addEventListener('resize', keepInView)
+    }, [CarouselObj, el])
 
     const onClickHandler = (ref, id) => {
         setCarouselObj(id)
@@ -71,17 +85,17 @@ export const Carousel = forwardRef((props, ref) => {
                     )}
                 </MenuLinksContainer>    
             </CarouselMenu>
-            <CarouselItemContainer id='CarouselItemContainer' width='100%' height='100%' align='center' position={resize ? 'absolute': ''} >
-                {ServicesData.map((s, idx) => 
-                    <CarouselItem ref={(refElement) => (elRef.current.push(refElement))}
+            <CarouselItemContainer id='CarouselItemContainer' width='100%' height='95%'>
+            {ServicesData.map((s, idx) =>
+                    <CarouselItem className='CarouselItem' ref={(refElement) => (elRef.current.push(refElement))}
                     key={idx} 
                     justify='center' 
-                    align='center' 
+                    align='center'
+                    margin='auto' 
                     height='85%' 
-                    width='100vw' 
-                    minWidth='100vw' 
-                    padding='20px'>
-                    
+                    width='100%'
+                    padding='20px'
+                    >
                         <TextWrap className={s.classname}>
                             <Heading className={s.classname} Inverse={s.inverse}>
                                 {s.Headline ? s.Headline: ''}
@@ -103,33 +117,11 @@ export const Carousel = forwardRef((props, ref) => {
                             <Img className={s.classname} key={idx} src={i}/>): ''
                         }
                     </CarouselItem>
-                )}
+                     )}
             </CarouselItemContainer>
-            {console.log(resize)}
         </CarouselContainer>   
     )
 })
 
 
 
-    /*const element = document.getElementById('CarouselItemContainer')
-
-    
-    function isVisible (ele) {
-        const { top, bottom } = ele.getBoundingClientRect();
-        const vHeight = (window.innerHeight || ele.documentElement.clientHeight);
-      
-        return (
-          (top > 0 || bottom > 0) &&
-          top < vHeight
-          );
-      }
-
-    useLayoutEffect(() => {
-        const keepInView = () => {
-            if (isVisible(element)){
-            elRef.current[CarouselObj].scrollIntoView({behavior: 'smooth', block: 'nearest'})
-        }} 
-
-        window.addEventListener('resize', keepInView)
-    }, [CarouselObj, element])*/

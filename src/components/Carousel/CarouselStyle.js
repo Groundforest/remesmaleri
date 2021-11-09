@@ -11,7 +11,7 @@ export const CarouselMenu = styled.div`
     flex-direction: row;
     justify-content: center;
     position: absolute;
-    height: 50px;
+    height: 5%;
     width: 100%;
     z-index: 50;
 
@@ -37,7 +37,7 @@ export const CarouselMenuHeader = styled.h1`
 export const MenuLinksContainer = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     width: 60%;
     column-gap: 10%;
 `;
@@ -58,19 +58,19 @@ export const CarouselMenuItem = styled.span`
 `;
 
 export const CarouselItemContainer = styled(Row)`
-    overflow-x: hidden;
     
 `;
 
 export const CarouselItem = styled(Row)`
     background-color: ${({ Inverse }) => (Inverse ? '#e2e1e6': 'white')};
     border: none;
+    flex-shrink: 0;
     border-radius: 6px;
-    padding-bottom: 0px;
 
     &.Img960container{
         flex-direction: row;
-
+        width: fit-content;
+        height: fit-content;
         @media screen and (max-width: 425px){
         height: 320px;
         }
@@ -79,7 +79,6 @@ export const CarouselItem = styled(Row)`
     @media screen and (max-width: 960px) {
         flex-direction: column;
         height: 90%;
-        margin-top: 30px;
         overflow: hidden;;
     }
 
