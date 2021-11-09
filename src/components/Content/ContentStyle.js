@@ -130,7 +130,9 @@ export const Subtitle = styled.div`
         width: fit-content;
     }
 
-    
+    &.About{
+        width: 300px;
+    }
     
 `;
 export const ContentWrapper = styled.div`  
@@ -155,6 +157,12 @@ export const Img = styled.img`
         width: 70%;
         height: 100%;
         object-fit: cover;
+
+        @media screen and (max-width: 1024px) {
+        width: 75%;
+        height: 100%;
+        object-position: 60%;
+    };
 
         @media screen and (max-width: 960px) {
         width: 150%;
