@@ -135,16 +135,6 @@ export const Subtitle = styled.div`
     }
     
 `;
-export const ContentWrapper = styled.div`  
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    width: 1500px;
-    height: 400px;
-    border: none;
-    border-radius: 3px;
-    
-`;
 
 export const Img = styled.img`
     display: flex;

@@ -66,6 +66,7 @@ export const CarouselItem = styled(Row)`
     border: none;
     flex-shrink: 0;
     border-radius: 6px;
+    
 
     &.Img960container{
         flex-direction: row;

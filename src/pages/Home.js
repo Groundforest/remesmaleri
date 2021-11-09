@@ -5,7 +5,7 @@ import { Content } from '../components/Content/Content'
 import { Footer } from '../components/Footer/Footer'
 import { Hero } from '../components/Hero/Hero'
 import { infoOne, infoTwo, AboutData } from '../data/ContentData'
-import { Column, GlobalStyle } from '../globalStyles'
+import { Container, GlobalStyle } from '../globalStyles'
 
 export const Home = () => {
     let home = useRef(), services = useRef(), about = useRef();
@@ -16,7 +16,7 @@ export const Home = () => {
                 home.current.scrollIntoView({behavior: 'smooth'});
                 break
             case 'Services':
-                services.current.scrollIntoView({behavior: 'smooth', block: 'end'});
+                services.current.scrollIntoView({behavior: 'smooth', block: 'start'});
                 break
             case 'About':
                 about.current.scrollIntoView({behavior: 'smooth'});
@@ -27,15 +27,15 @@ export const Home = () => {
     };
 
     return (
-        <Column height="fit-content" justify="center" align="center" width="100%">
+        <Container height="fit-content" justify="center" align="center" width="100%">
             <GlobalStyle/>
             <Navbar scrollTo={scrollTo}/>
             <Hero ref={home} scrollTo={scrollTo}/>
-            <Content  {...infoOne}/>
-            <Carousel ref={services} scrollTo={scrollTo}/>
+            <Content ref={services} {...infoOne}/>
+            <Carousel />
             <Content ref={about} {...infoTwo}/>
             <Content {...AboutData} align='flex-end' width='100%'/>
             <Footer/>
-        </Column>
+        </Container>
     )
 }

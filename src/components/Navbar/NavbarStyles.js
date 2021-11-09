@@ -53,7 +53,7 @@ export const NavMenu = styled.div`
     margin-right: 30px;
     height: fit-content;
     position: fixed;
-    z-index: 50;
+    z-index: 60;
 
     @media screen and (max-width: 960px) {
         display: none;

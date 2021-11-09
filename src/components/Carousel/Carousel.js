@@ -10,7 +10,6 @@ export const Carousel = forwardRef((props, ref) => {
     const[index, setIndex] = useState(0);
     const[windowSizeMedium, setWindowSizeMedium] = useState(false);
     const[CarouselObj, setCarouselObj] = useState(0);
-    const[element, setElement] = useState();
     const { icons } = CarouselButtonData;
     const elRef = useRef([]);
 
@@ -53,10 +52,8 @@ export const Carousel = forwardRef((props, ref) => {
         };
 
         function keepInView() {
-            console.log(isVisible())
             if (isVisible()) {
             elRef.current[CarouselObj].scrollIntoView({behavior: 'smooth', block: 'center'})
-            console.log(elRef.current)
                 };
             }
 

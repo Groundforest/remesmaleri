@@ -11,6 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 
 export const Container = styled.div`
 display: ${({ display }) => (display ? display: '')};
+flex-direction: column;
 width: 100%;
 max-width: 100%;
 height: ${({ height }) => ( height ? height: '970px')};
