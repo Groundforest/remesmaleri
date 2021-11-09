@@ -13,7 +13,6 @@ export const Carousel = forwardRef((props, ref) => {
     const { icons } = CarouselButtonData;
     const elRef = useRef([]);
 
-
     useEffect(() => {
         if (window.innerWidth <= 1024) {
             setWindowSizeMedium(true)
@@ -27,11 +26,8 @@ export const Carousel = forwardRef((props, ref) => {
             }
         };
 
-        
-
         window.addEventListener('resize', checkWindowSize)
         return () => {
-
             window.removeEventListener('resize', checkWindowSize)
         };
     }, []);
@@ -83,7 +79,7 @@ export const Carousel = forwardRef((props, ref) => {
                 <CarouselMenuHeader>TJÄNSTER</CarouselMenuHeader>
                 <MenuLinksContainer>
                     {ServicesData.map((el, idx) =>
-                        <CarouselMenuItem className='CarouselLinks' onClick={() => onClickHandler(elRef, idx)}>
+                        <CarouselMenuItem key={idx} className='CarouselLinks' onClick={() => onClickHandler(elRef, idx)}>
                             {el.Headline}
                         </CarouselMenuItem>
                     )}
